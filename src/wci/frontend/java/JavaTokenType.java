@@ -1,4 +1,4 @@
-package wci.frontend.java;
+package wci.frontend.Java;
 
 import java.util.Hashtable;
 import java.util.HashSet;
@@ -19,7 +19,10 @@ public enum JavaTokenType implements TokenType
     AND, ARRAY, BEGIN, CASE, CONST, DIV, DO, DOWNTO, ELSE, END,
     FILE, FOR, FUNCTION, GOTO, IF, IN, LABEL, MOD, NIL, NOT,
     OF, OR, PACKED, PROCEDURE, PROGRAM, RECORD, REPEAT, SET,
-    THEN, TO, TYPE, UNTIL, VAR, WHILE, WITH,
+    THEN, TO, TYPE, UNTIL, VAR, WHILE, WITH, ABSTRACT, DOUBLE,
+    INT, LONG, BREAK, SWITCH, ENUM, NATIVE, SUPER, CHAR, EXTENDS,
+    RETURN, THIS, CLASS, FLOAT, SHORT, THROW, PACKAGE, VOID, CONTINUE,
+    PROTECTED, VOLATILE, STATIC, 
 
     // Special symbols.
     PLUS("+"), MINUS("-"), STAR("*"), SLASH("/"), COLON_EQUALS(":="),
@@ -27,7 +30,14 @@ public enum JavaTokenType implements TokenType
     EQUALS("="), NOT_EQUALS("<>"), LESS_THAN("<"), LESS_EQUALS("<="),
     GREATER_EQUALS(">="), GREATER_THAN(">"), LEFT_PAREN("("), RIGHT_PAREN(")"),
     LEFT_BRACKET("["), RIGHT_BRACKET("]"), LEFT_BRACE("{"), RIGHT_BRACE("}"),
-    UP_ARROW("^"), DOT_DOT(".."),
+    UP_ARROW("^"), DOT_DOT(".."), TILDE("~"), EXCLAMATION_MARK("!"), AT("@"),
+    PERCENT_SIGN("%"), AMPERSAND("&"), VERTICAL_BAR("|"), 
+    QUESTION_MARK("?"), PLUS_PLUS("++"), MINUS_MINUS("--"), LEFT_SHIFT("<<"),
+    RIGHT_SHIFT(">>"), SLASH_SLASH("//"), SLASH_STAR("/*"), STAR_SLASH("*/"),
+    PLUS_EQUAL("+="), MINUS_EQUAL("-="), STAR_EQUAL("*="), SLASH_EQUAL("/="),
+    OR_EQUAL("|="), AND_EQUAL("&="), PERCENT_EQUAL("%="), UP_ARROW_EQUAL("^="),
+    NOT_EQUAL("!="), AND_AND("&&"), OR_OR("||"), LEFT_SHIFT_EQUAL("<<="),
+    RIGHT_SHIFT_EQUAL(">>="),
 
     IDENTIFIER, INTEGER, REAL, STRING,
     ERROR, END_OF_FILE;
