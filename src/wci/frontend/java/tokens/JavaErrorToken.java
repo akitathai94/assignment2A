@@ -1,9 +1,9 @@
-package wci.frontend.java.tokens;
+package wci.frontend.Java.tokens;
 
 import wci.frontend.*;
-import wci.frontend.java.*;
+import wci.frontend.Java.*;
 
-import static wci.frontend.java.JavaTokenType.*;
+import static wci.frontend.Java.JavaTokenType.*;
 
 /**
  * <h1>JavaErrorToken</h1>

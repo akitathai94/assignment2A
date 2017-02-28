@@ -1,10 +1,10 @@
-package wci.frontend.java;
+package wci.frontend.Java;
 
 import wci.frontend.*;
 import wci.message.Message;
 
-import static wci.frontend.java.JavaTokenType.*;
-import static wci.frontend.java.JavaErrorCode.*;
+import static wci.frontend.Java.JavaTokenType.*;
+import static wci.frontend.Java.JavaErrorCode.*;
 import static wci.message.MessageType.*;
 
 /**

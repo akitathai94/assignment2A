@@ -1,0 +1,3 @@
+	I assumed that the Reserved Words that normalize stored as uncapitalized so that I just simply compare it with the original word token that I have from the scanner. Easier to fix if I can understand the functions. Also I recognized that the character tokens are in the same line so that the while loops should not end while not the end of line. 
+	The clever things that I have done is to create a new character class to scan the character token. Also I understand how to append special characters such as “\’” and “\””into the string. First time it is really hard to understand how the scanner works, but after read the book now it is clear. I think the character token is the hardest so it should weight more scores than others in the criteria. 
+	Thai Truong

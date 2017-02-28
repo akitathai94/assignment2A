@@ -1,15 +1,15 @@
-package wci.frontend.java.tokens;
+package wci.frontend.Java.tokens;
 
 import wci.frontend.*;
-import wci.frontend.java.*;
+import wci.frontend.Java.*;
 
-import static wci.frontend.java.JavaTokenType.*;
-import static wci.frontend.java.JavaErrorCode.*;
+import static wci.frontend.Java.JavaTokenType.*;
+import static wci.frontend.Java.JavaErrorCode.*;
 
 /**
- * <h1>javaNumberToken</h1>
+ * <h1>JavaNumberToken</h1>
  *
- * <p>java number tokens (integer and real).</p>
+ * <p>Java number tokens (integer and real).</p>
  *
  * <p>Copyright (c) 2009 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
@@ -30,7 +30,7 @@ public class JavaNumberToken extends JavaToken
     }
 
     /**
-     * Extract a java number token from the source.
+     * Extract a Java number token from the source.
      * @throws Exception if an error occurred.
      */
     protected void extract()
@@ -42,7 +42,7 @@ public class JavaNumberToken extends JavaToken
     }
 
     /**
-     * Extract a java number token from the source.
+     * Extract a Java number token from the source.
      * @param textBuffer the buffer to append the token's characters.
      * @throws Exception if an error occurred.
      */

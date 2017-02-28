@@ -1,10 +1,10 @@
-package wci.frontend.java.tokens;
+package wci.frontend.Java.tokens;
 
 import wci.frontend.*;
-import wci.frontend.java.*;
+import wci.frontend.Java.*;
 
-import static wci.frontend.java.JavaTokenType.*;
-import static wci.frontend.java.JavaErrorCode.*;
+import static wci.frontend.Java.JavaTokenType.*;
+import static wci.frontend.Java.JavaErrorCode.*;
 
 /**
  * <h1>JavaSpecialSymbolToken</h1>
@@ -42,7 +42,8 @@ public class JavaSpecialSymbolToken extends JavaToken
         switch (currentChar) {
 
             // Single-character special symbols.
-            case '+':  case '-':  case '*':  case '/':  case ',':
+        	case '?':	
+        	case '+':  case '-':  case '*':  case '/':  case ',':
             case ';':  case '\'': case '=':  case '(':  case ')':
             case '[':  case ']':  case '{':  case '}':  case '^': {
                 nextChar();  // consume character

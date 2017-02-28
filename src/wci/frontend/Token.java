@@ -9,7 +9,8 @@ package wci.frontend;
  * <p>For instructional purposes only.  No warranties.</p>
  */
 public class Token
-{
+{	
+	protected char ch;
     protected TokenType type;  // language-specific token type
     protected String text;     // token text
     protected Object value;    // token value

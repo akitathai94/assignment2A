@@ -1,12 +1,12 @@
-package wci.frontend.java.tokens;
+package wci.frontend.Java.tokens;
 
 import wci.frontend.*;
-import wci.frontend.java.*;
+import wci.frontend.Java.*;
 
 import static wci.frontend.Source.EOL;
 import static wci.frontend.Source.EOF;
-import static wci.frontend.java.JavaTokenType.*;
-import static wci.frontend.java.JavaErrorCode.*;
+import static wci.frontend.Java.JavaTokenType.*;
+import static wci.frontend.Java.JavaErrorCode.*;
 
 /**
  * <h1>JavaStringToken</h1>
@@ -40,7 +40,7 @@ public class JavaStringToken extends JavaToken
         StringBuilder valueBuffer = new StringBuilder();
 
         char currentChar = nextChar();  // consume initial quote
-        textBuffer.append('\'');
+        textBuffer.append('\"');
 
         // Get string characters.
         do {
@@ -48,28 +48,54 @@ public class JavaStringToken extends JavaToken
             if (Character.isWhitespace(currentChar)) {
                 currentChar = ' ';
             }
-
-            if ((currentChar != '\'') && (currentChar != EOF)) {
-                textBuffer.append(currentChar);
-                valueBuffer.append(currentChar);
-                currentChar = nextChar();  // consume character
+            // Check \" case
+            if ((currentChar =='\\')){
+            	while((currentChar == '\\') && (peekChar() =='\"')){
+            		textBuffer.append("\\");
+            		textBuffer.append('\"');
+            		valueBuffer.append('\"');
+            		currentChar = nextChar();
+            		currentChar = nextChar();
+            	}
             }
-
+            //Check \t case
+            if ((currentChar =='\\')){
+            	while ((currentChar == '\\') && (peekChar() == 't')){
+            		textBuffer.append("\\t");
+            		valueBuffer.append('\t');
+            		currentChar = nextChar();
+            		currentChar = nextChar(); // consume '\t' character
+            	}
+            }
+            //Check \n case
+            if (currentChar == '\\'){
+            	while((currentChar == '\\') && (peekChar() == 'n')){
+            		textBuffer.append("\\n");
+            		valueBuffer.append('\n');
+            		currentChar = nextChar();
+            		currentChar = nextChar();// consume '\n' character 
+            	}
+            }
             // Quote?  Each pair of adjacent quotes represents a single-quote.
-            if (currentChar == '\'') {
-                while ((currentChar == '\'') && (peekChar() == '\'')) {
-                    textBuffer.append("''");
+            if (currentChar == '\"') {
+                while ((currentChar == '\"') && (peekChar() == '\"')) {
+                    textBuffer.append('"');
                     valueBuffer.append(currentChar); // append single-quote
                     currentChar = nextChar();        // consume pair of quotes
                     currentChar = nextChar();
                 }
             }
-        } while ((currentChar != '\'') && (currentChar != EOF));
+            // Read normal character 
+            if ((currentChar != '\"') && (currentChar != EOF)) {
+                textBuffer.append(currentChar);
+                valueBuffer.append(currentChar);
+                currentChar = nextChar();  // consume character
+            }
+        } while ((currentChar != '\"') && (currentChar != EOF));
 
-        if (currentChar == '\'') {
+        if (currentChar == '\"') {
             nextChar();  // consume final quote
-            textBuffer.append('\'');
-
+            textBuffer.append('\"');
             type = STRING;
             value = valueBuffer.toString();
         }

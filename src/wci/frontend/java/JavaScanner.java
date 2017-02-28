@@ -1,11 +1,11 @@
-package wci.frontend.java;
+package wci.frontend.Java;
 
 import wci.frontend.*;
-import wci.frontend.java.tokens.*;
+import wci.frontend.Java.tokens.*;
 
 import static wci.frontend.Source.EOF;
-import static wci.frontend.java.JavaTokenType.*;
-import static wci.frontend.java.JavaErrorCode.*;
+import static wci.frontend.Java.JavaTokenType.*;
+import static wci.frontend.Java.JavaErrorCode.*;
 
 /**
  * <h1>JavaScanner</h1>
@@ -50,7 +50,10 @@ public class JavaScanner extends Scanner
         else if (Character.isDigit(currentChar)) {
             token = new JavaNumberToken(source);
         }
-        else if (currentChar == '\'') {
+        else if (currentChar =='\'') {
+        	token = new JavaCharToken(source);
+        }
+        else if (currentChar == '\"') {
             token = new JavaStringToken(source);
         }
         else if (JavaTokenType.SPECIAL_SYMBOLS
@@ -71,28 +74,46 @@ public class JavaScanner extends Scanner
      * @throws Exception if an error occurred.
      */
     private void skipWhiteSpace()
-        throws Exception
-    {
-        char currentChar = currentChar();
+            throws Exception
+        {
+            char currentChar = currentChar();
 
-        while (Character.isWhitespace(currentChar) || (currentChar == '{')) {
+            while (Character.isWhitespace(currentChar) || (currentChar == '/')) {
 
-            // Start of a comment?
-            if (currentChar == '{') {
-                do {
-                    currentChar = nextChar();  // consume comment characters
-                } while ((currentChar != '}') && (currentChar != EOF));
+                // Start of a comment?
+                if ((currentChar == '/') ) {
+                	currentChar = nextChar();
+                	if (currentChar == '*'){
+                		 do {
+                             currentChar = nextChar();  // consume comment characters
+                         } while ((currentChar != '*') || (nextChar()!='/')
+                         		&& (currentChar != EOF));
+                         // Found closing '}'?
+                		 //System.out.println(currentChar);
+                         currentChar = nextChar();
+                         
+                         // consume the comment symbols
+                        // System.out.println(currentChar);
+                       
+                	}
+                	else if (currentChar == '/'){
+                		do {
+                            currentChar = nextChar();  // consume comment characters
+                        } while ((currentChar != '\n') && (currentChar != EOF));
 
-                // Found closing '}'?
-                if (currentChar == '}') {
-                    currentChar = nextChar();  // consume the '}'
+                        // Found closing '}'?
+                       
+                       currentChar = nextChar();  // consume the '}'
+                       
+                	}
+                   
                 }
-            }
+        
 
-            // Not a comment.
-            else {
-                currentChar = nextChar();  // consume whitespace character
+                // Not a comment.
+                else {
+                    currentChar = nextChar();  // consume whitespace character
+                }
             }
         }
     }
-}

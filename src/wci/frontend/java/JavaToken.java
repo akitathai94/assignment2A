@@ -1,4 +1,4 @@
-package wci.frontend.java;
+package wci.frontend.Java;
 
 import wci.frontend.*;
 

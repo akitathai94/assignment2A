@@ -1,9 +1,9 @@
-package wci.frontend.java.tokens;
+package wci.frontend.Java.tokens;
 
 import wci.frontend.*;
-import wci.frontend.java.*;
+import wci.frontend.Java.*;
 
-import static wci.frontend.java.JavaTokenType.*;
+import static wci.frontend.Java.JavaTokenType.*;
 
 /**
  * <h1>JavaWordToken</h1>
@@ -46,7 +46,7 @@ public class JavaWordToken extends JavaToken
         text = textBuffer.toString();
 
         // Is it a reserved word or an identifier?
-        type = (RESERVED_WORDS.contains(text.toLowerCase()))
+        type = (RESERVED_WORDS.contains(text))
                ? JavaTokenType.valueOf(text.toUpperCase())  // reserved word
                : IDENTIFIER;                                  // identifier
     }

@@ -1,4 +1,4 @@
-package wci.frontend.java;
+package wci.frontend.Java;
 
 /**
  * <h1>JavaErrorCode</h1>
@@ -67,7 +67,7 @@ public enum JavaErrorCode
     UNIMPLEMENTED("Unimplemented feature"),
     UNRECOGNIZABLE("Unrecognizable input"),
     WRONG_NUMBER_OF_PARMS("Wrong number of actual parameters"),
-
+    
     // Fatal errors.
     IO_ERROR(-101, "Object I/O error"),
     TOO_MANY_ERRORS(-102, "Too many syntax errors");

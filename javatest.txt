@@ -22,8 +22,8 @@ What?
 // String tokens
 "Hello, world."
 "Hello,\tworld!"
-"Hello,\n\"world!\""
-"It's Friday!"
+"Hello,\n\”world!\""
+"It’s Friday!"
 ""  "\""
 
 // Special symbol tokens

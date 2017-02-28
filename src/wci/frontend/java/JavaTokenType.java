@@ -36,17 +36,17 @@ public enum JavaTokenType implements TokenType
     RIGHT_SHIFT(">>"), SLASH_SLASH("//"), SLASH_STAR("/*"), STAR_SLASH("*/"),
     PLUS_EQUAL("+="), MINUS_EQUAL("-="), STAR_EQUAL("*="), SLASH_EQUAL("/="),
     OR_EQUAL("|="), AND_EQUAL("&="), PERCENT_EQUAL("%="), UP_ARROW_EQUAL("^="),
-    NOT_EQUAL("!="), AND_AND("&&"), OR_OR("||"), LEFT_SHIFT_EQUAL("<<="),
+    NOT_EQUAL("!="), AND_AND("&&"), OR_OR("||"), LEFT_SHIFT_EQUAL("<<="), DOUBLE_QUOTE("\""),
     RIGHT_SHIFT_EQUAL(">>="),
 
     IDENTIFIER, INTEGER, REAL, STRING,
     ERROR, END_OF_FILE;
 
     private static final int FIRST_RESERVED_INDEX = AND.ordinal();
-    private static final int LAST_RESERVED_INDEX  = WITH.ordinal();
+    private static final int LAST_RESERVED_INDEX  = STATIC.ordinal();
 
     private static final int FIRST_SPECIAL_INDEX = PLUS.ordinal();
-    private static final int LAST_SPECIAL_INDEX  = DOT_DOT.ordinal();
+    private static final int LAST_SPECIAL_INDEX  = RIGHT_SHIFT_EQUAL.ordinal();
 
     private String text;  // token text
 
@@ -55,7 +55,7 @@ public enum JavaTokenType implements TokenType
      */
     JavaTokenType()
     {
-        this.text = this.toString().toLowerCase();
+        this.text = this.toString();
     }
 
     /**
@@ -76,7 +76,7 @@ public enum JavaTokenType implements TokenType
         return text;
     }
 
-    // Set of lower-cased Java reserved word text strings.
+    // Set of Upper-cased Java reserved word text strings.
     public static HashSet<String> RESERVED_WORDS = new HashSet<String>();
     static {
         JavaTokenType values[] = JavaTokenType.values();
